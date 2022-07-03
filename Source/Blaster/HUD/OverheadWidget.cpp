@@ -42,7 +42,7 @@ void UOverheadWidget::ShowPlayerName(APawn* InPawn)
 	if (PlayerState)
 	{
 		FString PlayerNameString = PlayerState->GetPlayerName();
-		SetDisplayText(PlayerNameString);
+		//SetDisplayText(PlayerNameString);
 	}
 }
 
