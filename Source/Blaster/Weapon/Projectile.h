@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "Projectile.generated.h"
 
+#define PROJECTILE_SPEED 15000;
+
 UCLASS()
 class BLASTER_API AProjectile : public AActor
 {
@@ -21,6 +23,15 @@ protected:
 private:
 	UPROPERTY(EditAnywhere)
 	class UBoxComponent* CollisionBox;
+
+	UPROPERTY(VisibleAnywhere)
+	class UProjectileMovementComponent* ProjectileMovementComponent;
+
+	UPROPERTY(EditAnywhere)
+	class UParticleSystem* Tracer;
+
+	UPROPERTY(EditAnywhere)
+	class UParticleSystemComponent* TracerComponent;
 
 public:	
 
