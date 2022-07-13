@@ -182,4 +182,5 @@ public:
 	FORCEINLINE bool IsElimmed() const { return bElimmed; }
 	FORCEINLINE float GetHealth() const { return Health; }
 	FORCEINLINE float GetMaxHealth() const { return MaxHealth; }
+	FORCEINLINE ABlasterPlayerController* GetBlasterController() const { return BlasterPlayerController; }
 };
