@@ -25,18 +25,19 @@ public:
 	void EquipWeapon(class AWeapon* WeaponToEquip);
 	void Reload();
 	UFUNCTION(BlueprintCallable)
-	void FinishReloading();
-protected:
-	virtual void BeginPlay() override;
+	void FinishReloading();	
+	
+	void FireButtonPressed(bool bPressed);
+
 	void SetAiming(bool bIsAiming);
 
 	UFUNCTION(Server, Reliable)
 	void ServerSetAiming(bool bIsAiming);
+protected:
+	virtual void BeginPlay() override;
 
 	UFUNCTION()
 	void OnRep_EquippedWeapon();
-
-	void FireButtonPressed(bool bPressed);
 
 	void Fire();
 
