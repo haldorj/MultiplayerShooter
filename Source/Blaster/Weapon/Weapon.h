@@ -75,6 +75,17 @@ public:
 	UPROPERTY(EditAnywhere)
 	class USoundCue* EquipSound;
 
+	//
+	// Enable / disable custom depth.
+	//
+	void EnableCustomDepth(bool bEnable)
+	{
+		if (WeaponMesh)
+		{
+			WeaponMesh->SetRenderCustomDepth(bEnable);
+		}
+	}
+
 protected:
 	virtual void BeginPlay() override;
 

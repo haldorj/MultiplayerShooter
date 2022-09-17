@@ -37,7 +37,6 @@ void UCombatComponent::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& Out
 
 void UCombatComponent::ShotgunShellReload()
 {
-	UE_LOG(LogTemp, Warning, TEXT("ShellReload"));
 	if (Character && Character->HasAuthority())
 	{
 		UpdateShotgunAmmoValues();
