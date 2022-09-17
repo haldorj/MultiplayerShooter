@@ -90,6 +90,9 @@ void AHitScanWeapon::WeaponTraceHit(const FVector& TraceStart, const FVector& Hi
 			End,
 			ECollisionChannel::ECC_Visibility
 		);
+
+		if (!OutHit.bBlockingHit) OutHit.ImpactPoint = End;
+
 		FVector BeamEnd = End;
 		if (OutHit.bBlockingHit)
 		{

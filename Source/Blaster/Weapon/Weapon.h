@@ -78,13 +78,7 @@ public:
 	//
 	// Enable / disable custom depth.
 	//
-	void EnableCustomDepth(bool bEnable)
-	{
-		if (WeaponMesh)
-		{
-			WeaponMesh->SetRenderCustomDepth(bEnable);
-		}
-	}
+	void EnableCustomDepth(bool bEnable);
 
 protected:
 	virtual void BeginPlay() override;
