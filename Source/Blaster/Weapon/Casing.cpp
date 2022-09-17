@@ -4,6 +4,7 @@
 #include "Casing.h"
 #include "Kismet/GameplayStatics.h"
 #include "Sound/SoundCue.h"
+#include "Blaster/Blaster.h"
 
 ACasing::ACasing()
 {
@@ -11,11 +12,16 @@ ACasing::ACasing()
 	
 	CasingMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("CasingMesh"));
 	SetRootComponent(CasingMesh);
+	// Casing ignores camera, characters skeletal mesh, and capsule component.
 	CasingMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_Camera, ECollisionResponse::ECR_Ignore);
+	CasingMesh->SetCollisionResponseToChannel(ECC_SkeletalMesh, ECollisionResponse::ECR_Ignore);
+	CasingMesh->SetCollisionResponseToChannel(ECollisionChannel::ECC_Pawn, ECollisionResponse::ECR_Ignore);
+
 	CasingMesh->SetSimulatePhysics(true);
 	CasingMesh->SetEnableGravity(true);
 	CasingMesh->SetNotifyRigidBodyCollision(true);
 	ShellEjectionImpulse = 10.f;
+
 }
 
 
