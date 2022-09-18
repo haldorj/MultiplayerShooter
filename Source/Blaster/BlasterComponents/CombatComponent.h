@@ -27,6 +27,11 @@ public:
 	
 	void FireButtonPressed(bool bPressed);
 
+	void SetAiming(bool bIsAiming);
+
+	UFUNCTION(Server, Reliable)
+	void ServerSetAiming(bool bIsAiming);
+
 	UFUNCTION(BlueprintCallable)
 	void ShotgunShellReload();
 
@@ -37,11 +42,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void LaunchGrenade();
-	
-	void SetAiming(bool bIsAiming);
 
 	UFUNCTION(Server, Reliable)
-	void ServerSetAiming(bool bIsAiming);
+	void ServerLaunchGrenade(const FVector_NetQuantize& Target);
+
 protected:
 	virtual void BeginPlay() override;
 
