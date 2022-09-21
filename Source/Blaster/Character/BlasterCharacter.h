@@ -50,6 +50,7 @@ protected:
 	void Turn(float Value);
 	void LookUp(float Value);
 	void EquipButtonPressed();
+	void SwapButtonPressed();
 	void CrouchButtonPressed();
 	void ReloadButtonPressed();
 	void AimButtonPressed();
@@ -62,6 +63,8 @@ protected:
 	void FireButtonReleased();
 	void PlayHitReactMontage();
 	void GrenadeButtonPressed();
+	void DropOrDestroyWeapon(AWeapon* Weapon);
+	void DropOrDestroyWeapons();
 
 	UFUNCTION()
 	void ReceiveDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, class AController* InstigatorController, AActor* DamageCauser);
@@ -93,6 +96,9 @@ private:
 
 	UFUNCTION(Server, Reliable)
 	void ServerEquipButtonPressed();
+
+	UFUNCTION(Server, Reliable)
+	void ServerSwapButtonPressed();
 
 	float AO_Yaw;
 	float InterpAO_Yaw;

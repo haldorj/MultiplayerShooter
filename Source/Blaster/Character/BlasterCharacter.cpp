@@ -88,17 +88,7 @@ void ABlasterCharacter::OnRep_ReplicatedMovement()
 
 void ABlasterCharacter::Elim()
 {
-	if (Combat && Combat->EquippedWeapon)
-	{
-		if (Combat->EquippedWeapon->bDestroyWeapon)
-		{
-			Combat->EquippedWeapon->Destroy();
-		}
-		else
-		{
-			Combat->EquippedWeapon->Dropped();
-		}
-	}
+	DropOrDestroyWeapons();
 	MulticastElim();
 	GetWorldTimerManager().SetTimer(
 		ElimTimer,
@@ -106,6 +96,34 @@ void ABlasterCharacter::Elim()
 		&ABlasterCharacter::ElimTimerFinished,
 		ElimDelay
 	);
+}
+
+void ABlasterCharacter::DropOrDestroyWeapon(AWeapon* Weapon)
+{
+	if (Weapon == nullptr) return;
+	if (Weapon->bDestroyWeapon)
+	{
+		Weapon->Destroy();
+	}
+	else
+	{
+		Weapon->Dropped();
+	}
+}
+
+void ABlasterCharacter::DropOrDestroyWeapons()
+{
+	if (Combat)
+	{
+		if (Combat->EquippedWeapon)
+		{
+			DropOrDestroyWeapon(Combat->EquippedWeapon);
+		}
+		if (Combat->SecondaryWeapon)
+		{
+			DropOrDestroyWeapon(Combat->SecondaryWeapon);
+		}
+	}
 }
 
 void ABlasterCharacter::MulticastElim_Implementation()
@@ -261,6 +279,7 @@ void ABlasterCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCo
 	PlayerInputComponent->BindAxis("LookUp", this, &ABlasterCharacter::LookUp);
 
 	PlayerInputComponent->BindAction("Equip", IE_Pressed, this, &ABlasterCharacter::EquipButtonPressed);
+	PlayerInputComponent->BindAction("Swap", IE_Pressed, this, &ABlasterCharacter::SwapButtonPressed);
 	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &ABlasterCharacter::CrouchButtonPressed);
 	PlayerInputComponent->BindAction("Aim", IE_Pressed, this, &ABlasterCharacter::AimButtonPressed);
 	PlayerInputComponent->BindAction("Aim", IE_Released, this, &ABlasterCharacter::AimButtonReleased);
@@ -462,10 +481,27 @@ void ABlasterCharacter::ServerEquipButtonPressed_Implementation()
 		{
 			Combat->EquipWeapon(OverlappingWeapon);
 		}
-		else if (Combat->ShouldSwapWeapons())
-		{
-			Combat->SwapWeapons();
-		}
+		//else if (Combat->ShouldSwapWeapons())
+		//{
+		//	Combat->SwapWeapons();
+		//}
+	}
+}
+
+void ABlasterCharacter::SwapButtonPressed()
+{
+	if (bDisableGameplay) return;
+	if (Combat)
+	{
+		ServerSwapButtonPressed();
+	}
+}
+
+void ABlasterCharacter::ServerSwapButtonPressed_Implementation()
+{
+	if (Combat->ShouldSwapWeapons())
+	{
+	Combat->SwapWeapons();
 	}
 }
 
