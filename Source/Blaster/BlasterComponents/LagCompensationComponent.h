@@ -94,10 +94,10 @@ public:
 		);
 	UFUNCTION(Server, Reliable)
 	void ShotgunServerScoreRequest(
-	const TArray<ABlasterCharacter*>& HitCharacters, 
-	const FVector_NetQuantize& TraceStart, 
-	const TArray<FVector_NetQuantize>& HitLocations, 
-	float HitTime
+		const TArray<ABlasterCharacter*>& HitCharacters, 
+		const FVector_NetQuantize& TraceStart, 
+		const TArray<FVector_NetQuantize>& HitLocations, 
+		float HitTime
 		);
 	
 protected:
