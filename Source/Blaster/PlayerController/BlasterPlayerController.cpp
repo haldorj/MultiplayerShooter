@@ -7,7 +7,6 @@
 #include "Blaster/Character/BlasterCharacter.h"
 #include "Blaster/HUD/Announcement.h"
 #include "Blaster/BlasterComponents/CombatComponent.h"
-#include "Blaster/Weapon/Weapon.h"
 #include "Blaster/GameState/BlasterGameState.h"
 #include "Blaster/PlayerState/BlasterPlayerState.h"
 
@@ -48,6 +47,7 @@ void ABlasterPlayerController::CheckPing(float DeltaTime)
 	HighPingRunningTime += DeltaTime;
 	if (HighPingRunningTime > CheckPingFrequency)
 	{
+		UE_LOG(LogTemp, Warning, TEXT("PlayerState->GetPing() * 4 : %d"), PlayerState->GetCompressedPing() * 4);
 		PlayerState = PlayerState == nullptr ? GetPlayerState<APlayerState>() : PlayerState;
 		if (PlayerState)
 		{
@@ -55,6 +55,11 @@ void ABlasterPlayerController::CheckPing(float DeltaTime)
 			{
 				HighPingWarning();
 				PingAnimationRunningTime = 0.f;
+				ServerReportPingStatus(true);
+			}
+			else
+			{
+				ServerReportPingStatus(false);
 			}
 		}
 		HighPingRunningTime = 0.f;
@@ -71,6 +76,12 @@ void ABlasterPlayerController::CheckPing(float DeltaTime)
 			StopHighPingWarning();
 		}
 	}
+}
+
+// Is the ping to high?
+void ABlasterPlayerController::ServerReportPingStatus_Implementation(bool bHighPing)
+{
+	HighPingDelegate.Broadcast(bHighPing);
 }
 
 void ABlasterPlayerController::CheckTimeSync(float DeltaTime)
