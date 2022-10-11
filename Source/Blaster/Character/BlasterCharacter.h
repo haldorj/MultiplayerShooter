@@ -60,6 +60,12 @@ public:
 	void ServerLeaveGame();
 
 	FOnLeftGame OnLeftGame;
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastGainedTheLead();
+
+	UFUNCTION(NetMulticast, Reliable)
+	void MulticastLostTheLead();
 protected:
 	virtual void BeginPlay() override;
 
@@ -81,7 +87,7 @@ protected:
 	void FireButtonReleased();
 	void PlayHitReactMontage();
 	void GrenadeButtonPressed();
-	void DropOrDestroyWeapon(AWeapon* Weapon);
+	void DropOrDestroyWeapon(class AWeapon* Weapon);
 	void DropOrDestroyWeapons();
 
 	UFUNCTION()
@@ -307,6 +313,12 @@ private:
 	UPROPERTY()
 	class ABlasterPlayerState* BlasterPlayerState;
 
+	UPROPERTY(EditAnywhere)
+	class UNiagaraSystem* CrownSystem;
+
+	UPROPERTY()
+	class UNiagaraComponent* CrownComponent;
+	
 	//
 	// Grenade
 	//
