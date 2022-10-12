@@ -38,6 +38,8 @@ public:
 	float SingleTripTime = 0.f;
 
 	FHighPingDelegate HighPingDelegate;
+	
+	void BroadcastElim(APlayerState* Attacker, APlayerState* Victim);
 protected:
 	virtual void BeginPlay() override;
 	void SetHUDTime();
@@ -75,6 +77,8 @@ protected:
 
 	void ShowReturnToMainMenu();
 	
+	UFUNCTION(Client, Reliable)
+	void ClientElimAnnouncement(APlayerState* Attacker, APlayerState* Victim);
 private:
 	UPROPERTY()
 	class ABlasterHUD* BlasterHUD;
