@@ -34,18 +34,21 @@ void AHitScanWeapon::Fire(const FVector& HitTarget)
 		ABlasterCharacter* BlasterCharacter = Cast<ABlasterCharacter>(FireHit.GetActor());
 		if (BlasterCharacter && InstigatorController)
 		{
-			bool bCauseAuthDamage = !bUseServerSideRewind || OwnerPawn->IsLocallyControlled(); 
-			if (HasAuthority() && !bCauseAuthDamage)
+			bool bCauseAuthDamage = !bUseServerSideRewind || OwnerPawn->IsLocallyControlled();
+			if (HasAuthority() && bCauseAuthDamage)
 			{
+				// if the bone name is equal to "head", deal HeadShotDamage, else deal Damage.
+				const float DamageToCause = FireHit.BoneName.ToString() == FString("head") ? HeadShotDamage : Damage;
+				
 				UGameplayStatics::ApplyDamage(
 					BlasterCharacter,
-					Damage,
+					DamageToCause,
 					InstigatorController,
 					this,
 					UDamageType::StaticClass()
 				);
 			}
-			else if (!HasAuthority() && bUseServerSideRewind)
+			if (!HasAuthority() && bUseServerSideRewind)
 			{
 				BlasterOwnerCharacter = BlasterOwnerCharacter == nullptr ? Cast<ABlasterCharacter>(OwnerPawn) : BlasterOwnerCharacter;
 				BlasterOwnerController = BlasterOwnerController == nullptr ? Cast<ABlasterPlayerController>(InstigatorController) : BlasterOwnerController;
@@ -57,7 +60,7 @@ void AHitScanWeapon::Fire(const FVector& HitTarget)
 						HitTarget,
 						BlasterOwnerController->GetServerTime() - BlasterOwnerController->SingleTripTime,
 						this
-						);
+					);
 				}
 			}
 		}
@@ -111,15 +114,15 @@ void AHitScanWeapon::WeaponTraceHit(const FVector& TraceStart, const FVector& Hi
 			End,
 			ECollisionChannel::ECC_Visibility
 		);
-
-		if (!OutHit.bBlockingHit) OutHit.ImpactPoint = End;
-
 		FVector BeamEnd = End;
 		if (OutHit.bBlockingHit)
 		{
 			BeamEnd = OutHit.ImpactPoint;
 		}
-
+		else
+		{
+			OutHit.ImpactPoint = End;
+		}
 		//DrawDebugSphere(GetWorld(), BeamEnd, 16.f, 12, FColor::Orange, true);
 
 		if (BeamParticles)
