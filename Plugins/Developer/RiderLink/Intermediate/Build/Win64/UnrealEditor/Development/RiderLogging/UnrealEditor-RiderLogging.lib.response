@@ -6,6 +6,6 @@
 /NAME:"UnrealEditor-RiderLogging.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp.obj"
-"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Default.rc2.res"
-/OUT:"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\UnrealEditor-RiderLogging.lib"
+"C:\Users\haldo\OneDrive\Documents\GitHub\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Module.RiderLogging.cpp.obj"
+"C:\Users\haldo\OneDrive\Documents\GitHub\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\Default.rc2.res"
+/OUT:"C:\Users\haldo\OneDrive\Documents\GitHub\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderLogging\UnrealEditor-RiderLogging.lib"

@@ -11,7 +11,6 @@
 /DELAY:UNLOAD
 /DLL
 /PDBALTPATH:%_PDB%
-/fastfail
 /OPT:NOREF
 /OPT:NOICF
 /INCREMENTAL:NO
@@ -20,6 +19,7 @@
 /DELAYLOAD:"d3d12.dll"
 /DELAYLOAD:"DBGHELP.DLL"
 /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\lib\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\ucrt\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x64"
 /NODEFAULTLIB:"LIBCMT"
@@ -32,8 +32,7 @@
 /NODEFAULTLIB:"LIBCP"
 /NODEFAULTLIB:"LIBCD"
 /NODEFAULTLIB:"LIBCPD"
-/FUNCTIONPADMIN:6
-"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\RD.cpp.obj"
+/FUNCTIONPADMIN
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\Lifetime.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\LifetimeDefinition.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\LifetimeImpl.cpp.obj"
@@ -57,11 +56,11 @@
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\MessageBroker.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\Protocol.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\RdId.cpp.obj"
+"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\IScheduler.cpp.obj"
+"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\SingleThreadSchedulerBase.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\SimpleScheduler.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\SingleThreadScheduler.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\SynchronousScheduler.cpp.obj"
-"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\IScheduler.cpp.obj"
-"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\SingleThreadSchedulerBase.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\DefaultAbstractDeclaration.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\ISerializable.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\Polymorphic.cpp.obj"
@@ -76,7 +75,6 @@
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\SocketWire.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\WireUtil.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\RdTextBuffer.cpp.obj"
-"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\thirdparty.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\ActiveSocket.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\PassiveSocket.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\SimpleSocket.cpp.obj"
@@ -88,6 +86,8 @@
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\fmt.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\spdlog.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\stdout_sinks.cpp.obj"
+"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\thirdparty.cpp.obj"
+"C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\RD.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\Default.rc2.res"
 "..\Intermediate\Build\Win64\UnrealEditor\Development\Core\UnrealEditor-Core.lib"
 "delayimp.lib"

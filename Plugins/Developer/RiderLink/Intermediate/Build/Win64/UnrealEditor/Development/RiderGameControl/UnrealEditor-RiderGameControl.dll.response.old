@@ -11,7 +11,6 @@
 /DELAY:UNLOAD
 /DLL
 /PDBALTPATH:%_PDB%
-/fastfail
 /OPT:NOREF
 /OPT:NOICF
 /INCREMENTAL:NO
@@ -20,6 +19,7 @@
 /DELAYLOAD:"d3d12.dll"
 /DELAYLOAD:"DBGHELP.DLL"
 /LIBPATH:"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\lib\x64"
+/LIBPATH:"C:\Program Files (x86)\Windows Kits\NETFXSDK\4.8\lib\um\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\ucrt\x64"
 /LIBPATH:"C:\Program Files (x86)\Windows Kits\10\lib\10.0.22000.0\um\x64"
 /NODEFAULTLIB:"LIBCMT"
@@ -32,7 +32,7 @@
 /NODEFAULTLIB:"LIBCP"
 /NODEFAULTLIB:"LIBCD"
 /NODEFAULTLIB:"LIBCPD"
-/FUNCTIONPADMIN:6
+/FUNCTIONPADMIN
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderGameControl\RiderGameControl.cpp.obj"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RiderGameControl\Default.rc2.res"
 "C:\Users\haldo\OneDrive\Documents\GitHub\Blaster\MultiplayerShooter\Plugins\Developer\RiderLink\Intermediate\Build\Win64\UnrealEditor\Development\RD\UnrealEditor-RD.lib"
