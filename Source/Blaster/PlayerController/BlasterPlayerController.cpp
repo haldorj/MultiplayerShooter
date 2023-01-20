@@ -587,7 +587,7 @@ void ABlasterPlayerController::OnMatchStateSet(FName State, bool bTeamsMatch)
 
 	if (MatchState == MatchState::InProgress)
 	{
-		HandleMatchHasStarted();
+		HandleMatchHasStarted(bTeamsMatch);
 	}
 	else if (MatchState == MatchState::Cooldown)
 	{
