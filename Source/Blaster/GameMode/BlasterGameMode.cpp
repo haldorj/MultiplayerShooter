@@ -68,7 +68,7 @@ void ABlasterGameMode::OnMatchStateSet()
 		if (BlasterPlayer)
 		{
 			// Set the matchstate of all playercontrollers to our variable MatchState.
-			BlasterPlayer->OnMatchStateSet(MatchState);
+			BlasterPlayer->OnMatchStateSet(MatchState, bTeamsMatch);
 		}
 	}
 }
