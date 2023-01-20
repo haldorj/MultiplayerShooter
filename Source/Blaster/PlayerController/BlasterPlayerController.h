@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Blaster/PlayerState/BlasterPlayerState.h"
 #include "GameFramework/PlayerController.h"
 #include "BlasterPlayerController.generated.h"
 
@@ -89,6 +90,9 @@ protected:
 
 	UFUNCTION()
 	void OnRep_ShowTeamScores();
+
+	FString GetInfoText(const TArray<ABlasterPlayerState*>& Players);
+	FString GetTeamsInfoText(class ABlasterGameState* BlasterGameState);
 private:
 	UPROPERTY()
 	class ABlasterHUD* BlasterHUD;
