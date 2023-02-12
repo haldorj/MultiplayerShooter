@@ -578,6 +578,7 @@ void ABlasterCharacter::PlayHitReactMontage()
 
 void ABlasterCharacter::GrenadeButtonPressed()
 {
+	if (Combat && Combat->bHoldingTheFlag) return;
 	if (Combat)
 	{
 		Combat->ThrowGrenade();
@@ -667,6 +668,7 @@ void ABlasterCharacter::ServerEquipButtonPressed_Implementation()
 {
 	if (Combat)
 	{
+		if (Combat->bHoldingTheFlag) return;
 		if (OverlappingWeapon)
 		{
 			Combat->EquipWeapon(OverlappingWeapon);
@@ -683,6 +685,7 @@ void ABlasterCharacter::SwapButtonPressed()
 	if (bDisableGameplay) return;
 	if (Combat)
 	{
+		if (Combat->bHoldingTheFlag) return;
 		if (Combat->CombatState == ECombatState::ECS_Unoccupied) ServerSwapButtonPressed();
 
 		bool bSwap = Combat->ShouldSwapWeapons() && 
@@ -708,6 +711,7 @@ void ABlasterCharacter::ServerSwapButtonPressed_Implementation()
 
 void ABlasterCharacter::CrouchButtonPressed()
 {
+	if (Combat && Combat->bHoldingTheFlag) return;
 	if (bDisableGameplay) return;
 	if (bIsCrouched)
 	{
@@ -721,6 +725,7 @@ void ABlasterCharacter::CrouchButtonPressed()
 
 void ABlasterCharacter::ReloadButtonPressed()
 {
+	if (Combat && Combat->bHoldingTheFlag) return;
 	if (bDisableGameplay) return;
 	if (Combat)
 	{
@@ -730,6 +735,7 @@ void ABlasterCharacter::ReloadButtonPressed()
 
 void ABlasterCharacter::AimButtonPressed()
 {
+	if (Combat && Combat->bHoldingTheFlag) return;
 	if (bDisableGameplay) return;
 	if (Combat)
 	{
@@ -739,6 +745,7 @@ void ABlasterCharacter::AimButtonPressed()
 
 void ABlasterCharacter::AimButtonReleased()
 {
+	if (Combat && Combat->bHoldingTheFlag) return;
 	if (bDisableGameplay) return;
 	if (Combat)
 	{
@@ -825,6 +832,7 @@ void ABlasterCharacter::SimProxiesTurn()
 
 void ABlasterCharacter::Jump()
 {
+	if (Combat && Combat->bHoldingTheFlag) return;
 	if (bDisableGameplay) return;
 	if (bIsCrouched)
 	{
@@ -838,6 +846,7 @@ void ABlasterCharacter::Jump()
 
 void ABlasterCharacter::FireButtonPressed()
 {
+	if (Combat && Combat->bHoldingTheFlag) return;
 	if (bDisableGameplay) return;
 	if (Combat)
 	{
@@ -847,6 +856,7 @@ void ABlasterCharacter::FireButtonPressed()
 
 void ABlasterCharacter::FireButtonReleased()
 {
+	if (Combat && Combat->bHoldingTheFlag) return;
 	if (bDisableGameplay) return;
 	Combat->FireButtonPressed(false);
 }
