@@ -482,6 +482,15 @@ void ABlasterPlayerController::SetHUDGrenades(int32 Grenades)
 
 void ABlasterPlayerController::SetHUDTime()
 {
+	if (HasAuthority())
+	{
+		BlasterGameMode = BlasterGameMode == nullptr ? Cast<ABlasterGameMode>(UGameplayStatics::GetGameMode(this)) : BlasterGameMode;
+		if (BlasterGameMode)
+		{
+			LevelStartingTime = BlasterGameMode->GetLevelStartingTime();
+		}
+	}
+	
 	float TimeLeft = 0.f;
 	
 	if (MatchState == MatchState::WaitingToStart)
@@ -613,9 +622,7 @@ void ABlasterPlayerController::HandleMatchHasStarted(bool bTeamsMatch)
 	BlasterHUD = BlasterHUD == nullptr ? Cast<ABlasterHUD>(GetHUD()) : BlasterHUD;
 	if (BlasterHUD)
 	{
-		if (BlasterHUD->CharacterOverlay == nullptr)
-			BlasterHUD->AddCharacterOverlay();
-
+		if (BlasterHUD->CharacterOverlay == nullptr) BlasterHUD->AddCharacterOverlay();
 		if (BlasterHUD->Announcement)
 		{
 			BlasterHUD->Announcement->SetVisibility(ESlateVisibility::Hidden);
